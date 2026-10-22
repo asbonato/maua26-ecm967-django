@@ -76,8 +76,12 @@ WSGI_APPLICATION = "filmes_project.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": 'pessoal_pdfs_rest_filmes_26',
+        "USER": 'coloque o seu username',
+        "PASSWORD": 'coloque a sua senha',
+        "HOST": 'localhost',
+        "PORT": '5432',
     }
 }
 

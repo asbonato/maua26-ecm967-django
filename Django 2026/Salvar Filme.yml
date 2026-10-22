@@ -1,0 +1,23 @@
+info:
+  name: Salvar Filme
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: http://localhost:8000/filmes/
+  body:
+    type: json
+    data: |-
+      {
+        "titulo": "Titanic",
+        "descricao": "Um filme sobre o Titanic",
+        "diretor": "{{$randomFullName}}"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

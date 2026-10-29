@@ -11,19 +11,26 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import environ
+
+env = environ.Env(
+    DEBUG = (bool, False)
+)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+environ.Env.read_env(BASE_DIR / Path(".env"))
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-726sw#wl=ock3r9rc1-4xef4d)^1&-w!l94m+2zcloi34y1wfr"
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env('DEBUG')
+
 
 ALLOWED_HOSTS = []
 
@@ -77,11 +84,11 @@ WSGI_APPLICATION = "filmes_project.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": 'pessoal_pdfs_rest_filmes_26',
-        "USER": 'coloque o seu username',
-        "PASSWORD": 'coloque a sua senha',
-        "HOST": 'localhost',
-        "PORT": '5432',
+        "NAME": env('DATABASE_DEFAULT_NAME'),
+        "USER": env('DATABASE_DEFAULT_USER'),
+        "PASSWORD": env('DATABASE_DEFAULT_PASSWORD'),
+        "HOST": env('DATABASE_DEFAULT_HOST'),
+        "PORT": env('DATABASE_DEFAULT_PORT'),
     }
 }
 

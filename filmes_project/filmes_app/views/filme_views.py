@@ -1,6 +1,6 @@
 from rest_framework import generics
-from .models import Filme
-from .serializers import FilmeSerializer
+from filmes_app.models import Filme
+from filmes_app.serializers import FilmeSerializer
 
 class FilmeListCreate (generics.ListCreateAPIView):
     queryset = Filme.objects.all()

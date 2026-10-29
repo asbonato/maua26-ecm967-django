@@ -1,0 +1,25 @@
+info:
+  name: Salvar Filme 2
+  type: http
+  seq: 5
+
+http:
+  method: POST
+  url: http://localhost:8000/filmes/
+  body:
+    type: json
+    data: |-
+      { "genero": {
+          "descricao":'Ficção Científica',
+          "id": 2 },
+        "titulo": "Allien, o Oitavo Passageiro",
+        "descricao": "Um filme sobre uma criatura que invade uma nave",
+        "diretor": "{{$randomFullName}}"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

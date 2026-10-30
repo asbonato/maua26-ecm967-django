@@ -9,9 +9,7 @@ http:
   body:
     type: json
     data: |-
-      { "genero": {
-          "descricao":'Ficção Científica',
-          "id": 2 },
+      { "genero_id": 2,
         "titulo": "Allien, o Oitavo Passageiro",
         "descricao": "Um filme sobre uma criatura que invade uma nave",
         "diretor": "{{$randomFullName}}"
